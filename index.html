@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		
-		<title>reveal.js - HTML5 Presentations</title>
+		<title>Symfony 101 - FAMC</title>
 
 		<meta name="description" content="An easy to use CSS 3D slideshow tool for quickly creating good looking HTML presentations.">
 		<meta name="author" content="Hakim El Hattab">
@@ -13,7 +13,10 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-		
+        <script xsrc="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="css/pastie.css" />
+
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/custom.css">
@@ -32,10 +35,10 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Symfony2</h1>
+					<h1>Symfony 101</h1>
                     <h4>Now with 75% more Spring influence, but all the same Railsy flavor as Symfony1!</h4>
                     <img id="sf2-logo" src="http://symfony.com/images/common/logo/logo_symfony_header.png" alt="Symfony2 Logo" />
-					<p>Props to reveal.js for the slideshow awesomeness.<a href="http://github.com/hakimel/reveal.js">reveal.js</a></p>
+					<p>Props to reveal.js for the slideshow awesomeness.<a target="_blank" href="http://github.com/hakimel/reveal.js">reveal.js</a></p>
 					<script>
 						// Delicously hacky. Look away.
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
@@ -47,8 +50,8 @@
 					<h2>Super awesome MVC framework for PHP</h2>
 					<p>
                         <ol>
-                            <li>Symfony2 is an Open Source distributed PHP framework.</li>
-                            <li>You don't need a framework to develop in PHP, but aren't they cool!?!</li>
+                            <li>Symfony is an Open Source distributed PHP framework.</li>
+                            <li>You don't need a framework to develop in PHP, but they sure make life easier.</li>
                         </ol>
 					</p>
 					<a href="#/2/1" class="image">
@@ -63,7 +66,7 @@
                                 <ul>
                                     <li>
                                         It was created by Sensio Labs, and they've been doin this stuff for like,
-                                        a long time.  Fine, more than 12 years.  So they've got this.
+                                        a long time - more than 12 years.  So they've got this.
                                     </li> 
                                 </ul>
                             </li> 
@@ -77,8 +80,8 @@
                                 <ul>
                                     <li>
                                     Yahoo!, Dailymotion, Opensky.com, Exercise.com 
-                                    and even applications such as phpBB and Drupal. And soon 
-                                    Franklin American Mortgage Company will join this list...
+                                    and even applications such as phpBB, Drupal, and now
+                                    Franklin American Mortgage Company has joined the list...
                                     </li> 
                                 </ul>
                             </li> 
@@ -93,7 +96,7 @@
                                     <li>
                                         Sensio Labs is instrumental in PHP standards (PHPUnit,
                                         naming conventions, code style).  Creator Fabien Potencier
-                                        is a voting member on the <a href="http://github.com/php-fig/fig-standards">PHP Framework Interoperability Group</a>
+                                        is a voting member on the <a target="_blank" href="http://github.com/php-fig/fig-standards">PHP Framework Interoperability Group</a>
                                     </li>
                                     <li>
                                         The framework is built via core components that can even be
@@ -150,13 +153,91 @@
 
                 <section>
                     <section>
-                        <h2>Bundles</h2>
+                        <h2>Symfony Structure</h2>
                         <ul>
+                            <li>app</li>
+                            <li>src</li>
+                            <li>vendor*</li>
+                            <li>web</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Symfony Structure</h2>
+                        <h3>APP</h3>
+                        <ul>
+                            <li>Application Configuration</li>
+                            <li>Brain Matter</li>
+                            <li>Cache*</li>
+                            <li>Logs*</li>
+                            <li>PHPUnit Config</li>
+                            <li>Universal Resources </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Symfony Structure</h2>
+                        <h3>APP - console</h3>
+                        <ul>
+                            <li>php app/console </li>
+                            <li>Cache Control</li>
                             <li>
+                                Convenience Functions
+                                <ul>
+                                    <li>Bundle Generation</li>
+                                    <li>Entity Generation</li>
+                                    <li>Form   Generation</li>
+                                </ul>
+                            </li>
+                            <li> Database Tasks (db/schema - crud) </li>
+                            <li>
+                                Maintanence/Debug Tasks
+                                <ul>
+                                    <li>Deploying bundle js/images/css</li>
+                                    <li>Configuration Debugging</li>
+                                    <li>Router Debugging</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Symfony Structure</h2>
+                        <h3>SRC</h3>
+                        <div> Home of your Code!</div>
+                        <ul>
+                            <li>Bundles</li>
+                            <li>App Specific Code</li>
+                            <li>Models Views Controllers</li>
+                            <li>*Should Follow PSR-0</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Symfony Structure</h2>
+                        <h3>VENDOR</h3>
+                        <ul>
+                            <li>Symfony code</li>
+                            <li>Third Party Libraries/Bundles</li>
+                            <li>Autoloading!</li>
+                        </ul>
+                        <div><br/>Vendors and you working together to support YOUR app!</div>
+                    </section>
+                    <section>
+                        <h2>Symfony Structure</h2>
+                        <h3>WEB</h3>
+                        <ul>
+                            <li>Gateway to the <del style="color: red; cursor: wait;">West</del> <ins style="text-decoration: none">App.</ins></li>
+                            <li>app.php</li>
+                            <li>app_dev.php</li>
+                            <li>Bundle Public Resources (css/images/js)</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Bundles</h2>
                                 <h3>Modularity</h3>
                                 <ul>
                                     <li>
-                                        A great strength of Symfony is all the seperate pieces.
+                                        A great strength of Symfony is all the seperate pieces
                                     </li>
                                     <li>
                                         A collection of code wrapped up for use in Symfony
@@ -165,158 +246,233 @@
                                             <li> Wrapper or Connector For Other Library </li>
                                         </ul>
                                     </li>
+                                    <li>
+                                        Mini-Projects
+                                    </li>
+                                </ul>
+                            </li>
+                    </section>
+
+                    <section>
+                        <h2>Bundles</h2>
+                        <H3>Examples</H3>
+                        <ul>
+                            <li>FOSUserBundle</li>
+                            <li>Doctrine - DoctrineBundle</li>
+                            <li>Symfony</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Bundles</h2>
+                            <H3>Structure</H3>
+                            <ul>
+                                <li class="fragment">Controller</li>
+                                <li class="fragment">DependencyInjection</li>
+                                <li class="fragment">Entity</li>
+                                <li class="fragment">Form</li>
+                                <li class="fragment">Resources</li>
+                                <li class="fragment">Service</li>
+                                <li class="fragment">Tests</li>
+                            </ul>
+                    </section>
+
+                    <section>
+                        <h2>Bundles</h2>
+                        <h3>Models, Views, and Controllers Oh My!</h3>
+                        <ul>
+                            <li>Unique Entities (Models) - <i>Bundle</i>/Entity</li>
+                            <li>Unique Controllers - <i>Bundle</i>/Controller</li>
+                            <li>Unique Views - <i>Bundle</i>/Resources/views/...</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Bundles</h2>
+                        <h3>CONTROLLER</h3>
+                        <ul>
+                            <li>Can Have Multiple</li>
+                            <li>Group Actions By Topic</li>
+                            <li> Action Functions - must end with Action </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Bundles</h2>
+                        <h3>DEPENDENCY INJECTION</h3>
+                        <ul>
+                            <li> Where the idea of the DI container lives </li>
+                            <li> services.(php|xml|yml)** is read in </li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h4>** -- lives elsewhere</h4>
+                    </section>
+
+                    <section>
+                        <h2>Bundles</h2>
+                        <h3>ENTITY</h3>
+                        <ul>
+                            <li>Models</li>
+                            <li>Representative of entries in db</li>
+                            <li>Annotations</li>
+                            <li>Can Define DB Schema</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Bundles</h2>
+                        <h3>FORM</h3>
+                        <ul>
+                            <li>Web Forms for Models</li>
+                            <li>Can be bound to request parameters - no need to parse request</li>
+                            <li>Overly Complicated in their Simplicity</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Bundles</h2>
+                        <h3>RESOURCES</h3>
+                        <ul>
+                            <li>Config - services.(php|xml|yml)</li>
+                            <li> public
+                                <ul>
+                                    <li>css</li>
+                                    <li>images</li>
+                                    <li>js</li>
+                                </ul>
+                            </li>
+                            <li>Translations</li>
+                            <li> views
+                                <ul>
+                                    <li>Bundles - Named based on controller</li>
+                                    <li>base.html.twig</li>
                                 </ul>
                             </li>
                         </ul>
                     </section>
+
                     <section>
                         <h2>Bundles</h2>
+                        <h3>SERVICE</h3>
+                        <ul class="fragment">
+                            <li>Service classes live here</li>
+                            <li>Service classes should end with Service</li>
+                        </ul>
+                        <h4 class="fragment"><br />What is a Service?</h4>
+                        <blockquote style="width: 100%" class="fragment" cite="http://symfony.com/doc/current/book/service_container.html">
+                            ... a Service is any PHP object that performs some sort of "global" task. It's a
+                            purposefully-generic name used in computer science to describe an object that's created for
+                            a specific purpose (e.g. delivering emails). Each service is used throughout your application
+                            whenever you need the specific functionality it provides.</blockquote>
+
+                    </section>
+
+                    <section>
+                        <h2>Bundles</h2>
+                        <h3>TEST</h3>
                         <ul>
-                            <li><H3>Examples</H3></li>
+                            <li>PHPUnit</li>
                             <ul>
-                                <li>FOSUserBundle</li>
-                                <li>Doctrine - DoctrineBundle</li>
+                                <li>Controller</li>
+                                <li>Unit</li>
                             </ul>
                         </ul>
                     </section>
                 </section>
-
-				<section data-markdown>
-					## Markdown support
-					
-					For those of you who like that sort of thing.  
-                    Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-					<pre><code contenteditable style="margin-top: 20px;">&lt;section data-markdown&gt;
-  ## Markdown support
-
-  For those of you who like that sort of thing. 
-  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-&lt;/section&gt;
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like:
-					</p>
-					<ul>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=cube">Cube</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=page">Page</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=concave">Concave</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=linear">Linear</a></li>
-					</ul>
-				</section>
-
-				<section>
-					<section data-state="alert">
-						<h2>Global State</h2>
-						<p>
-							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-							will be added as a class to the document element when the slide is open. This let's you
-							apply broader style changes, like switching the background.
-						</p>
-						<a href="#/7/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						</a>
-					</section>
-					<section data-state="blackout">
-						<h2>"blackout"</h2>
-						<a href="#/7/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						</a>
-					</section>
-					<section data-state="soothe">
-						<h2>"soothe"</h2>
-						<a href="#/7/0" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would 
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-					</blockquote>
-				</section>
-				
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-    
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i < len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-				
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,<br/>
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Fragmented Views</h2>
-					<p>Hit the next arrow...</p>
-					<p class="fragment">... to step through ...</p>
-					<ol>
-						<li class="fragment"><code>any type</code></li>
-						<li class="fragment"><em>of view</em></li>
-						<li class="fragment"><strong>fragments</strong></li>
-					</ol>
-				</section>
-				
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://hakim.se/experiments/html5/breakdom/" target="_blank">
-						<img width="320" height="412" src="https://s3.amazonaws.com/hakim-static/reveal-js/breakdom.png">
-					</a>
-				</section>
-				
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on github</a></li>
-						<li><a href="http://hakim.se/projects/reveal-js">Read more on my site</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
-				
+                <section>
+                    <section>
+                        <h2>Digging A Little Deeper</h2>
+                        <h3>Controller</h3>
+                        <ul>
+                            <li> ~Action Functions - must end with Action </li>
+                            <li>Annotations</li>
+                            <ul>
+                                <li>@Route - path and route name</li>
+                                <li>@Method - DELETE/GET/POST/PUT</li>
+                                <li>@Template - define default template to use</li>
+                            </ul>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Digging A Little Deeper</h2>
+                        <h3>Controller - Route</h3>
+                        <ul>
+                            <li>Sensio\Bundle\FrameworkExtraBundle\Configuration\Route</li>
+                            <li class="code-sample">Action Level:
+                               <pre><code data-language="php">
+            /**
+             * @Route("/", name="page_index")
+             *  // or
+             * @Route("/edit/{id}", name="page_edit")
+             */
+            public function editAction($id)</code></pre>
+                            </li>
+                            <li class="code-sample">Controller Level:
+                               <pre><code data-language="php">
+            /**
+             * @Route("/page")
+             */
+            class PageController extends Controller</code></pre>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Digging A Little Deeper</h2>
+                        <h3>Controller - Method</h3>
+                        <ul>
+                            <li>Sensio\Bundle\FrameworkExtraBundle\Configuration\Method</li>
+                            <li>public function indexAction(Request $request)</li>
+                            <li class="code-sample"> Example:
+                                <pre><code data-language="php">
+            /**
+             * @Method("GET")
+             *  // or
+             * @Method({"GET", "POST"})
+             */
+                                </code></pre>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Digging A Little Deeper</h2>
+                        <h3>Controller - Template</h3>
+                        <ul>
+                            <li>Sensio\Bundle\FrameworkExtraBundle\Configuration\Template</li>
+                            <li class="code-sample">Example:<pre><code data-language="php">
+             /**
+              * @Template("famcDemoBundle:Page:show.html.twig")
+              */
+              public function editAction($id)
+                            </code></pre></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Digging A Little Deeper</h2>
+                        <h3>Controller - Request</h3>
+                        <ul>
+                            <li>Symfony\Component\HttpFoundation\Request</li>
+                            <li>Wraps up all the $_SERVER, $_GET, $_POST, $_FILES, $_COOKIE in a nice neat package.</li>
+                            <li>Includes Session Data.</li>
+                            <li class="code-sample"><pre><code data-language="php"> function indexAction(Request $request)</code></pre></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Digging A Little Deeper</h2>
+                        <h3>Controller - Response</h3>
+                        <ul>
+                            <li>Symfony\Component\HttpFoundation\Response</li>
+                            <li>Nice OO way to manage header content</li>
+                            <li>Layer of abstraction sitting between browser and controller</li>
+                            <li>Makes controller agnostic of rendered content</li>
+                        </ul>
+                    </section>
+                </section>
 				<section>
 					<h1>THE END</h1>
-					<h3 class="inverted">BY Hakim El Hattab / hakim.se</h3>
+					<h3 class="inverted">BY</h3>
+                    <h4>Kyle White & Micah Breedlove</h4>
 				</section>
 			</div>
 
@@ -335,6 +491,9 @@ function linkify( selector ) {
 
 		<script src="lib/js/head.min.js"></script>
 
+        <script src="js/rainbow.js"></script>
+        <script src="js/generic.js"></script>
+        <script src="js/php.js"></script>
 		<script>
 			// Scripts that should be loaded before initializing
 			var scripts = [];
@@ -389,6 +548,16 @@ function linkify( selector ) {
 			head.js( 'lib/js/highlight.js', function() { 
 				hljs.initHighlightingOnLoad(); 
 			} );
+
+            Rainbow.extend('php', [
+                {
+                    'matches': {
+                        1: 'phpdoc.annotation'
+                    },
+                    'pattern':  /(\@(Template|Route|Method))\(.+\)/g
+                }
+            ], true);
+
 		</script>
 
 	</body>
