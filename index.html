@@ -473,6 +473,93 @@
                         </ul>
                     </section>
                 </section>
+                <section>
+                    <section>
+                        <h2>Configuration</h2>
+                        <h3>All the Configs</h3>
+                        <ul>
+                            <li>Application Config</li>
+                            <li>Bundle Config
+                                <ul>
+                                    <li>Services Config</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Application Config</h2>
+                        <ul>
+                            <li>
+                                app/config
+                                <ul>
+                                    <li>database.yml</li>
+                                    <li>parameters.yml</li>
+                                    <li>config.yml -- App Generic</li>
+                                    <li>config_ENV.yml -- Env-Specific</li>
+                                    <li>security.yml</li>
+                                    <li>routing.yml</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Application Config (cont.)</h2>
+                        <h3>Order of Operations</h3>
+                        <ul>
+                           <li>config_ENV.yml*</li>
+                           <li> config.yml
+                               <ul>
+                                   <li>parameters.yml</li>
+                                   <li>database.yml</li>
+                                   <li>security.yml</li>
+                                   <li>[the rest of-] config.yml (includes routing.yml)</li>
+                               </ul>
+                           </li>
+                        </ul>
+                        <div class="footnote">
+                             * -- (Prod/Dev/Test) Symfony Environment rather than Server Environment
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Application Config Server Environment</h2>
+                        <ul>
+                            <li>database.SERVER_ENV.yml</li>
+                            <li>parameters.SERVER_ENV.yml</li>
+                        </ul>
+                        <div class="follow-up">
+                            Distribution files where server environment is configured. These are copied or symlinked
+                            at the time of deployment.
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Bundle Config</h2>
+                        <ul>
+                            <li>DependencyInjection/{Bundle}Extension.php</li>
+                            <li>~Bundle/Resources/config/services.(php|yml|xml)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Services Config</h2>
+                        <ul>
+                            <li>
+                                Can be configured with:
+                                <ul>
+                                    <li>PHP</li>
+                                    <li>YML</li>
+                                    <li>XML (why?)</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Defines Service classes
+                                <ul>
+                                    <li>Construct Args</li>
+                                    <li>Call Service Class Methods</li>
+                                </ul>
+                            </li>
+                            <li>Accessible from anywhere Service/DI Container is accessible</li>
+                        </ul>
+                    </section>
+                </section>
 				<section>
 					<h1>THE END</h1>
 					<h3 class="inverted">BY</h3>

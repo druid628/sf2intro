@@ -18,3 +18,11 @@ pre .comment .annotation {
 li.code-sample {
     list-style-type: none;
 }
+
+div.footnote {
+    padding-top: 2em;
+}
+
+div.follow-up {
+    padding-top: 1em;
+}
