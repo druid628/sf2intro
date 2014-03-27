@@ -362,7 +362,6 @@
                         <h3>SERVICE</h3>
                         <ul class="fragment">
                             <li>Service classes live here</li>
-                            <li>Service classes should end with Service</li>
                         </ul>
                         <h4 class="fragment"><br />What is a Service?</h4>
                         <blockquote style="width: 100%" class="fragment" cite="http://symfony.com/doc/current/book/service_container.html">
@@ -408,7 +407,7 @@
                                <pre><code data-language="php">
             /**
              * @Route("/", name="page_index")
-             *  // or
+             *     or
              * @Route("/edit/{id}", name="page_edit")
              */
             public function editAction($id)</code></pre>
@@ -432,7 +431,7 @@
                                 <pre><code data-language="php">
             /**
              * @Method("GET")
-             *  // or
+             *     or
              * @Method({"GET", "POST"})
              */
                                 </code></pre>
@@ -456,9 +455,18 @@
                         <h2>Digging A Little Deeper</h2>
                         <h3>Controller - Request</h3>
                         <ul>
-                            <li>Symfony\Component\HttpFoundation\Request</li>
-                            <li>Wraps up all the $_SERVER, $_GET, $_POST, $_FILES, $_COOKIE in a nice neat package.</li>
-                            <li>Includes Session Data.</li>
+                            <li>Symfony\Component\HttpFoundation\Request (object)</li>
+                            <li>Wraps up all the following in a nice neat package:
+                                <ul>
+                                    <li>$_POST</li>
+                                    <li>$_SERVER</li>
+                                    <li>$_GET</li>
+                                    <li>$_FILES</li>
+                                    <li>$_COOKIE</li>
+                                </ul>
+                            </li>
+                            <li>Don't use the magic variables above. <BR/>If you do, you're doing it wrong </li>
+                            <li>Includes Session Data</li>
                             <li class="code-sample"><pre><code data-language="php"> function indexAction(Request $request)</code></pre></li>
                         </ul>
                     </section>
@@ -467,9 +475,23 @@
                         <h3>Controller - Response</h3>
                         <ul>
                             <li>Symfony\Component\HttpFoundation\Response</li>
-                            <li>Nice OO way to manage header content</li>
-                            <li>Layer of abstraction sitting between browser and controller</li>
+                            <li>Nice Object Oriented way to manage header content</li>
+                            <li>Layer of abstraction sitting between view layer and controller</li>
                             <li>Makes controller agnostic of rendered content</li>
+                            <li class="code-sample large"><pre><code data-language="php">
+/**
+ * @Template("famcDemoBundle:Page:show.html.twig")
+ */
+function indexAction(Request $request)
+{
+    // your magic code
+
+    return array('text' => 'SomeText');
+    //  same as:
+    //  new Response($this->renderView('famcDemoBundle:Page:show.html.twig',
+    //                            array('text' => 'SomeText')));
+}
+                                </code></pre></li>
                         </ul>
                     </section>
                 </section>
@@ -482,6 +504,24 @@
                             <li>Bundle Config
                                 <ul>
                                     <li>Services Config</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Configuration</h2>
+                        <h3>2 Different Types of config discussed</h3>
+                        <ul>
+                            <li>Server Environment
+                                <ul>
+                                    <li> The environment in which the server is deployed </li>
+                                </ul>
+                            </li>
+                            <li>Config Context
+                                <ul>
+                                    <li>Prod</li>
+                                    <li>Dev</li>
+                                    <li>Test</li>
                                 </ul>
                             </li>
                         </ul>
@@ -517,7 +557,7 @@
                            </li>
                         </ul>
                         <div class="footnote">
-                             * -- (Prod/Dev/Test) Symfony Environment rather than Server Environment
+                             * -- (Prod/Dev/Test) Configuration Context (Symfony environment) and NOT the Server Environment
                         </div>
                     </section>
                     <section>
@@ -534,8 +574,16 @@
                     <section>
                         <h2>Bundle Config</h2>
                         <ul>
+                            <li>DependencyInjection/Configuration.php</li>
                             <li>DependencyInjection/{Bundle}Extension.php</li>
                             <li>~Bundle/Resources/config/services.(php|yml|xml)</li>
+                        </ul>
+                        <hr/>
+                        <h3>Example</h3>
+                        <ul>
+                            <li>FAMC/CMS/CmsBundle/DependencyInjection/Configuration.php</li>
+                            <li>FAMC/CMS/CmsBundle/DependencyInjection/famcCmsBundleExtension.php</li>
+                            <li>FAMC/CMS/CmsBundle/Resources/config/services.yml</li>
                         </ul>
                     </section>
                     <section>
@@ -556,7 +604,14 @@
                                     <li>Call Service Class Methods</li>
                                 </ul>
                             </li>
-                            <li>Accessible from anywhere Service/DI Container is accessible</li>
+                            <li>
+                                Accessible from anywhere Service/DI Container is accessible
+                                <ul>
+                                    <li>Controllers</li>
+                                    <li>ContainerAware Services</li>
+                                </ul>
+                            </li>
+
                         </ul>
                     </section>
                 </section>

@@ -19,6 +19,10 @@ li.code-sample {
     list-style-type: none;
 }
 
+li.code-sample.large {
+    margin-left: -2.5em;
+}
+
 div.footnote {
     padding-top: 2em;
 }
